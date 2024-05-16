@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Image Upload</title>
+</head>
+<body>
+    <h1>Upload Image</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".png, .jpg, .jpeg">
+        <input type="submit" value="Upload">
+    </form>
+
+    {% if processed_text %}
+    <h2>Processed Text</h2>
+    <form action="/edit" method="post">
+        <textarea name="edited_text" rows="10" cols="50">{{ processed_text }}</textarea><br>
+        <input type="submit" value="Save Changes">
+    </form>
+    {% endif %}
+</body>
+</html>
+<!-- ก่อนใช้ ติดตั้ง Flask  pip install Flask-->
+<!-- ก่อนใช้ ติดตั้ง easyocr pip install easyocr-->
+<!-- https://flask.palletsprojects.com/en/3.0.x/installation/#install-flask -->
+<!-- https://pypi.org/project/easyocr/ -->
